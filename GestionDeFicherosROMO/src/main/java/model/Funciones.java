@@ -1,15 +1,23 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package model;
 
-/**
- *
- * @author germanromort
- */
+import java.io.File;
+
 public class Funciones {
-    public static void main(String[] args) {
-        System.out.println("hola");
+
+    /**
+     * Crea una carpeta con el nombre indicado si no existe.
+     * @param folderName nombre de la carpeta a crear.
+     */
+    public static void createFolder(String folderName) {
+        File carpeta = new File(folderName);
+        if (!carpeta.exists()) {
+            if (carpeta.mkdir()) {
+                System.out.println("Carpeta creada: " + folderName);
+            } else {
+                System.out.println("No se pudo crear la carpeta.");
+            }
+        } else {
+            System.out.println("La carpeta ya existe.");
+        }
     }
 }
